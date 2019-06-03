@@ -31,15 +31,20 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
     };
 
     render() {
-      const { visible, onCancel, onCreate, form } = this.props;
+      const { visible, onCreate, onCancel, form } = this.props;
       const { getFieldDecorator } = form;
       return (
         <Modal
           visible={visible}
           title="Request an invite"
-          okText="Create"
-          onCancel={onCancel}
+          centered
           onOk={onCreate}
+          onCancel={onCancel}
+          footer={[
+            <Button key="submit" type="primary" onClick={this.onCreate} block>
+              Send
+            </Button>
+          ]}
         >
           <Form layout="vertical">
             <Form.Item>
@@ -58,8 +63,12 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
                 rules: [
                   {
                     type: "email",
+                    message: "The input is not valid E-mail!"
+                  },
+                  {
                     required: true,
-                    message: "Please input your E-mail!",
+                    message: "Please input your E-mail!"
+                  },{
                     validator: this.validateToNextEmail
                   }
                 ]
@@ -77,7 +86,12 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
                     validator: this.compareToFirstEmail
                   }
                 ]
-              })(<Input onBlur={this.handleConfirmBlur} placeholder="Confirm E-mail" />)}
+              })(
+                <Input
+                  onBlur={this.handleConfirmBlur}
+                  placeholder="Confirm E-mail"
+                />
+              )}
             </Form.Item>
           </Form>
         </Modal>
