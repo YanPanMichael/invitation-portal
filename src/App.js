@@ -8,11 +8,16 @@ function App() {
   return (
     <div className="App">
       <Layout>
-        <Header>Header</Header>
-        <Content>
-          <CollectionsPage />
+        <Header className="portal-header"><h2>Broccoli & Co.</h2></Header>
+        <Content style={{ padding: 0, margin: 0 }}>
+          <div style={{ background: "#fff" }}>
+            <CollectionsPage />
+          </div>
         </Content>
-        <Footer>Footer</Footer>
+        <Footer className="portal-footer">
+          <p>Made with in Melbourne.</p>
+          <p>2016 Broccoli & Co. All rights reserved.</p>
+        </Footer>
       </Layout>
     </div>
   );

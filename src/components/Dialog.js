@@ -37,6 +37,7 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
         <Modal
           visible={visible}
           title="Request an invite"
+          style={{ textAlign: "center" }}
           centered
           onOk={onCreate}
           onCancel={onCancel}
@@ -46,7 +47,7 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
             </Button>
           ]}
         >
-          <Form layout="vertical">
+          <Form layout="vertical" style={{ paddingTop: 20 }}>
             <Form.Item>
               {getFieldDecorator("name", {
                 rules: [
@@ -133,8 +134,8 @@ class CollectionsPage extends React.Component {
   render() {
     return (
       <div>
-        <Button type="primary" onClick={this.showModal}>
-          New Collection
+        <Button size="large" onClick={this.showModal}>
+          Request an invite
         </Button>
         <CollectionCreateForm
           wrappedComponentRef={this.saveFormRef}
