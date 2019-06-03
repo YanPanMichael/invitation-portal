@@ -36,36 +36,24 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
       return (
         <Modal
           visible={visible}
-          title="Create a new collection"
+          title="Request an invite"
           okText="Create"
           onCancel={onCancel}
           onOk={onCreate}
         >
           <Form layout="vertical">
-            <Form.Item label="Title">
-              {getFieldDecorator("title", {
+            <Form.Item>
+              {getFieldDecorator("name", {
                 rules: [
                   {
                     required: true,
-                    message: "Please input the title of collection!"
+                    message: "Please input your full name!",
+                    whitespace: true
                   }
                 ]
-              })(<Input />)}
+              })(<Input placeholder="Full Name" />)}
             </Form.Item>
-            <Form.Item label="Description">
-              {getFieldDecorator("description")(<Input type="textarea" />)}
-            </Form.Item>
-            <Form.Item className="collection-create-form_last-form-item">
-              {getFieldDecorator("modifier", {
-                initialValue: "public"
-              })(
-                <Radio.Group>
-                  <Radio value="public">Public</Radio>
-                  <Radio value="private">Private</Radio>
-                </Radio.Group>
-              )}
-            </Form.Item>
-            <Form.Item label="E-mail" hasFeedback>
+            <Form.Item hasFeedback>
               {getFieldDecorator("email", {
                 rules: [
                   {
@@ -75,9 +63,9 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
                     validator: this.validateToNextEmail
                   }
                 ]
-              })(<Input />)}
+              })(<Input placeholder="E-mail" />)}
             </Form.Item>
-            <Form.Item label="Confirm E-mail" hasFeedback>
+            <Form.Item hasFeedback>
               {getFieldDecorator("confirm", {
                 rules: [
                   {
@@ -89,7 +77,7 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
                     validator: this.compareToFirstEmail
                   }
                 ]
-              })(<Input onBlur={this.handleConfirmBlur} />)}
+              })(<Input onBlur={this.handleConfirmBlur} placeholder="Confirm E-mail" />)}
             </Form.Item>
           </Form>
         </Modal>
