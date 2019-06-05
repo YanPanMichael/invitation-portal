@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![image]: images/1.png
+![image]: https://github.com/YanPanMichael/invitation-portal.git/images/1.png
 
 
 ## Available Scripts
