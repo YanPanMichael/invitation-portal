@@ -26,6 +26,8 @@
 }
 
 .portal-header {
+  position: fixed;
+  width: 100%;
   background-color: #fff;
   border-bottom: 1px solid #ccc;
   text-align: left;
@@ -43,7 +45,7 @@
 }
 
 .portal-footer {
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
