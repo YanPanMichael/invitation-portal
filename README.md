@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+PC: 
+![Image text](https://raw.githubusercontent.com/YanPanMichael/invitation-portal/master/images/2.png)
+
+Mobile:
 ![Image text](https://raw.githubusercontent.com/YanPanMichael/invitation-portal/master/images/7.png)
 
 
