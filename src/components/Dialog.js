@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Button, Modal, Form, Input, message } from "antd";
+import { Button, Modal, Form, Input, notification } from "antd";
 
 const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
   // eslint-disable-next-line
@@ -143,11 +143,19 @@ class CollectionsPage extends React.Component {
             icon: ''
           });
         } else {
-          message.warning('Registered Failed!');
+          notification.error({
+            message: 'Registered Failed!',
+            description:
+              'Registered Failed! Please try again later.',
+          });
         }
       }).catch(err => {
         console.log('axios', err);
-        message.warning("Opps, please change email address and try again!");
+        notification.error({
+          message: 'Alert!',
+          description:
+            'Opps, please change email address and try to register again!',
+        });
       });
 
       form.resetFields();
