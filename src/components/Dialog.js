@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Button, Modal, Form, Input, Radio } from "antd";
+import { Button, Modal, Form, Input, message } from "antd";
 
 const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
   // eslint-disable-next-line
@@ -132,13 +132,22 @@ class CollectionsPage extends React.Component {
 
       this.sendRequest(values).then(res => {
         if (res.status === 200 && res.data === "Registered") {
-          console.log('aa', res.data);
+          console.log("Registered!");
+          Modal.success({
+            title: <h2 style={{textAlign: 'center', fontStyle: 'italic'}}>All done!</h2>,
+            content: <p style={{marginLeft: '-38px', textAlign: 'center'}}>You will be one of the first to experience Brocoli & Co. when we launch</p>,
+            centered: true,
+            okText: "OK",
+            okType: "default",
+            maskClosable: true,
+            icon: ''
+          });
         } else {
-          alert("Registered Failed!")
+          message.warning('Registered Failed!');
         }
       }).catch(err => {
         console.log('axios', err);
-        window.alert("Opps, please change email address and try again!");
+        message.warning("Opps, please change email address and try again!");
       });
 
       form.resetFields();
@@ -160,6 +169,10 @@ class CollectionsPage extends React.Component {
         email: values.email
       }
     }).then(res => res);
+  }
+
+  componentWillUnmount () {
+    Modal.destroyAll();
   }
 
   render() {
