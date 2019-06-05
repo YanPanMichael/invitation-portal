@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { Button, Modal, Form, Input, Radio } from "antd";
 
 const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
@@ -39,10 +40,15 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
           title="Request an invite"
           style={{ textAlign: "center" }}
           centered
-          onOk={onCreate}
+          // onOk={onCreate}
           onCancel={onCancel}
           footer={[
-            <Button key="submit" type="primary" onClick={this.onCreate} block>
+            <Button
+              key="submit"
+              type="primary"
+              onClick={() => onCreate()}
+              block
+            >
               Send
             </Button>
           ]}
@@ -69,7 +75,8 @@ const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
                   {
                     required: true,
                     message: "Please input your E-mail!"
-                  },{
+                  },
+                  {
                     validator: this.validateToNextEmail
                   }
                 ]
@@ -122,6 +129,18 @@ class CollectionsPage extends React.Component {
       }
 
       console.log("Received values of form: ", values);
+
+      this.sendRequest(values).then(res => {
+        if (res.status === 200 && res.data === "Registered") {
+          console.log('aa', res.data);
+        } else {
+          alert("Registered Failed!")
+        }
+      }).catch(err => {
+        console.log('axios', err);
+        window.alert("Opps, please change email address and try again!");
+      });
+
       form.resetFields();
       this.setState({ visible: false });
     });
@@ -131,18 +150,36 @@ class CollectionsPage extends React.Component {
     this.formRef = formRef;
   };
 
+  sendRequest(values) {
+    const reqUrl = 'https://l94wc2001h.execute-api.ap-southeast-2.amazonaws.com/prod/fake-auth';
+    return axios({
+      method: 'post',
+      url: reqUrl,
+      data: {
+        name: values.name,
+        email: values.email
+      }
+    }).then(res => res);
+  }
+
   render() {
     return (
-      <div>
-        <Button size="large" onClick={this.showModal}>
-          Request an invite
-        </Button>
-        <CollectionCreateForm
-          wrappedComponentRef={this.saveFormRef}
-          visible={this.state.visible}
-          onCancel={this.handleCancel}
-          onCreate={this.handleCreate}
-        />
+      <div className="description">
+        <div>
+          <h2 className="desc-title">
+            A better way to enjoy every day.
+          </h2>
+          <p>Be the first to know when we launch.</p>
+          <Button size="large" onClick={this.showModal}>
+            Request an invite
+          </Button>
+          <CollectionCreateForm
+            wrappedComponentRef={this.saveFormRef}
+            visible={this.state.visible}
+            onCancel={this.handleCancel}
+            onCreate={this.handleCreate}
+          />
+        </div>
       </div>
     );
   }

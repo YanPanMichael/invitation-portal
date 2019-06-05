@@ -33,6 +33,15 @@
   text-transform: uppercase;
 }
 
+.portal-content {
+  position: absolute;
+  top: 64px;
+  bottom: 80px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 .portal-footer {
   position: absolute;
   left: 0;
@@ -40,6 +49,23 @@
   width: 100%;
   background-color: #fff;
   border-top: 1px solid #ccc;
+  height: 80px;
+}
+
+.portal-footer p {
+  margin: auto;
+}
+
+.description {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: #fff;
+}
+
+.desc-title {
+  font-size: 2.5em;
 }
 
 @keyframes App-logo-spin {

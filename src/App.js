@@ -8,11 +8,11 @@ function App() {
   return (
     <div className="App">
       <Layout>
-        <Header className="portal-header"><h2>Broccoli & Co.</h2></Header>
-        <Content style={{ padding: 0, margin: 0 }}>
-          <div style={{ background: "#fff" }}>
-            <CollectionsPage />
-          </div>
+        <Header className="portal-header">
+          <h2>Broccoli & Co.</h2>
+        </Header>
+        <Content className="portal-content">
+          <CollectionsPage />
         </Content>
         <Footer className="portal-footer">
           <p>Made with in Melbourne.</p>
