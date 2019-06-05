@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout } from "antd";
-import CollectionsPage from "./components/Dialog";
+import CollectionsPage from "./components/CollectionsPage";
 import "./App.css";
 
 const { Header, Footer, Content } = Layout;
