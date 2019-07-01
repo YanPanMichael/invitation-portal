@@ -48,6 +48,7 @@
     "react-app-polyfill": "^1.0.1",
     "react-dev-utils": "^9.0.1",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1",
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
     "semver": "6.0.0",
@@ -60,7 +61,9 @@
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "4.2.0"
   },
-  "author": ["Yan Pan"],
+  "author": [
+    "Yan Pan"
+  ],
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",

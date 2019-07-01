@@ -74,9 +74,9 @@ class CollectionsPage extends React.Component {
       <div className="description">
         <div>
           <h2 className="desc-title">
-            A better way to enjoy every day.
+            Citi Foot Point.
           </h2>
-          <p>Be the first to know when we launch.</p>
+          <p>Kown what you have achieved in CITI.</p>
           <Button size="large" onClick={this.showModal}>
             Request an invite
           </Button>

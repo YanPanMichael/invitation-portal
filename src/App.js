@@ -9,14 +9,14 @@ function App() {
     <div className="App">
       <Layout>
         <Header className="portal-header">
-          <h2>Broccoli & Co.</h2>
+          <h2>Citi</h2>
         </Header>
         <Content className="portal-content">
           <CollectionsPage />
         </Content>
         <Footer className="portal-footer">
-          <p>Made with in Melbourne.</p>
-          <p>2016 Broccoli & Co. All rights reserved.</p>
+          <p>Made with in China.</p>
+          <p>2019 CSTC Co. All rights reserved.</p>
         </Footer>
       </Layout>
     </div>
