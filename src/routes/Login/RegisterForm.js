@@ -1,11 +1,11 @@
 import React from "react";
 import { Form, Input, message } from "antd";
-// import { inject, observer } from "mobx-react/index";
+import { inject, observer } from "mobx-react";
 import { calculateWidth } from "../../utils/utils";
 // import PromptBox from "../../components/PromptBox";
 
-// @inject("appStore")
-// @observer
+@inject("appStore")
+@observer
 @Form.create()
 class RegisterForm extends React.Component {
   state = {

@@ -2,7 +2,7 @@ import React from "react";
 import BGParticle from "../../utils/BGParticle";
 import { notification } from "antd";
 import { withRouter } from "react-router-dom";
-// import { inject, observer } from "mobx-react/index";
+import { inject, observer } from "mobx-react";
 // import Loading2 from "../../components/Loading2";
 import { preloadingImages } from "../../utils/utils";
 import LoginForm from "./LoginForm";
@@ -20,8 +20,8 @@ const imgs = [
 ];
 
 @withRouter
-// @inject("appStore")
-// @observer
+@inject("appStore")
+@observer
 class Login extends React.Component {
   state = {
     showBox: "login", //展示当前表单
@@ -31,8 +31,7 @@ class Login extends React.Component {
   };
 
   componentDidMount() {
-    // const isLogin = this.props.appStore;
-    const isLogin = false;
+    const isLogin = this.props.appStore;
     if (isLogin) {
       this.props.history.go(1); //当浏览器用后退按钮回到登录页时，判断登录页是否登录，是登录就重定向上个页面
       // this.props.appStore.toggleLogin(false) //也可以设置退出登录
@@ -50,7 +49,7 @@ class Login extends React.Component {
     this.setState({
       loading: true
     });
-    // this.props.appStore.initUsers();
+    this.props.appStore.initUsers();
     this.loadImageAsync(url)
       .then(url => {
         this.setState({

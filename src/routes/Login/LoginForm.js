@@ -1,13 +1,13 @@
 import React from "react";
 import { randomNum, calculateWidth } from "../../utils/utils";
 import { withRouter } from "react-router-dom";
-// import { inject, observer } from "mobx-react/index";
+import { inject, observer } from "mobx-react";
 import { Form, Input, Row, Col } from "antd";
 // import PromptBox from "../../components/PromptBox";
 
 @withRouter
-// @inject("appStore")
-// @observer
+@inject("appStore")
+@observer
 @Form.create()
 class LoginForm extends React.Component {
   state = {
